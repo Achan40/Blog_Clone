@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Anything that is not the admin page, go to blogs.urls
-    url(r'',include('blogs.urls')),
+    url(r'',include('blog.urls')),
     url(r'accounts/login/$',views.LoginView.as_view(),name='login'),
 
     # When you logout, you go to the next page

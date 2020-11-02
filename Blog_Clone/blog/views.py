@@ -6,6 +6,9 @@ from blog.forms import PostForm,CommentForm
 
 from django.urls import reverse_lazy
 
+# decorators
+from django.contrib.auth.decorators import login_required
+
 # mixins
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -56,7 +59,7 @@ class DraftListView(LoginRequiredMixin,ListView):
 @login_required
 def post_publish(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    post.publish
+    post.publish()
     return redirect('post_detail',pk=pk)
 
 # decorator makes it so that to see view a login is required
